@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Gestión de Vehículos</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Kevin Hernández">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" rel="icon" href="../../resources/img/icon.png">
+    <link type="text/css" rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../../resources/css/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <main>
+        <h3 id="mainTitle">Gestión de Vehículos</h3>
+        <div class="row">
+            <form class="col-sm-12 col-md-6" id="searchForm">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <button type="reset" class="btn btn-secondary" onclick="fillTable()">
+                            <i class="bi bi-x-square-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="col-sm-12 col-md-6 text-end">
+                <button type="button" class="btn btn-primary" onclick="openCreate()">
+                    <i class="bi bi-plus-square-fill"></i>
+                </button>
+            </div>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td colspan="4" id="rowsFound"></td>
+                </tr>
+                <tr>
+                    <th>IMAGEN</th>
+                    <th>MARCA</th>
+                    <th>MODELO</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalTitle">Guardar Vehículo</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="saveForm">
+                        <div class="modal-body row g-3">
+                            <input type="number" class="d-none" id="idVehiculo" name="idVehiculo">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="marcaVehiculo" class="form-label">Marca</label>
+                                <input id="marcaVehiculo" type="text" name="marcaVehiculo" class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="modeloVehiculo" class="form-label">Modelo</label>
+                                <input id="modeloVehiculo" type="text" name="modeloVehiculo" class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="anioVehiculo" class="form-label">Año</label>
+                                <input id="anioVehiculo" type="number" name="anioVehiculo" class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="descripcionVehiculo" class="form-label">Descripción</label>
+                                <input id="descripcionVehiculo" type="text" name="descripcionVehiculo" class="form-control">
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="imagenVehiculo" class="form-label">Imagen</label>
+                                <input id="imagenVehiculo" type="file" name="imagenVehiculo" class="form-control" accept=".png, .jpg">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" src="../../resources/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/admin.js"></script>
+    <script type="text/javascript" src="../../controllers/admin/vehiculo.js"></script>
+</body>
+
+</html>
